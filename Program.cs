@@ -4,12 +4,17 @@ namespace Text_Adventure
 {
     class Program
     {
+        static string AskQuestion(string question)
+        {
+            Console.WriteLine(question);
+            string answer = Console.ReadLine();
+            return answer;
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to The Forest");
-            Console.WriteLine("Are you ready for an adventure? (yes/no)");
-
-            string answer = Console.ReadLine();
+            string answer = AskQuestion("Are you ready for an adventure? (yes/no)");
 
             if(answer.ToLower() == "yes")
             {
@@ -20,14 +25,13 @@ namespace Text_Adventure
                 Console.WriteLine("Well too bad. Better get ready anyway");
             }
 
-            Console.WriteLine("You must choose to go left or right");
-            answer = Console.ReadLine();
+           
+            answer = AskQuestion("You must choose to go left or right");
 
             if (answer.ToLower() == "left")
             {
                 Console.WriteLine("You immediatley get punched by a ghost");
-                Console.WriteLine("You get up and must decide if you are going to swing on the vines or continue walking. (vines/continue)");
-                answer = Console.ReadLine();
+                answer = AskQuestion("You get up and must decide if you are going to swing on the vines or continue walking. (vines/continue)");
                 if(answer.ToLower() == "vines")
                 {
                     Console.WriteLine("You turn into a monkey");
@@ -40,8 +44,8 @@ namespace Text_Adventure
             else if (answer.ToLower() == "right")
             {
                 Console.WriteLine("You immediatley meet a green monster");
-                Console.WriteLine("You must decide if you are going to run or attack. (run/attack)");
-                answer = Console.ReadLine();
+              
+                answer = AskQuestion(("You must decide if you are going to run or attack. (run/attack)"));
                 if(answer.ToLower() == "run")
                 {
                     Console.WriteLine("You escape the green monster and keep running");
@@ -51,7 +55,7 @@ namespace Text_Adventure
                     Console.WriteLine("The green monster begins to cry because he wanted to be friends");
                 }
             }
-
-        }   
+        }  
+        
     }
 }
